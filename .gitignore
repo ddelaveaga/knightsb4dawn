@@ -23,4 +23,7 @@ pids
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Media
+knightb4dawnMedia/WhatsApp* 
