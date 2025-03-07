@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knights B4 Dawn - Reno Chess Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --background-light: #ffffff;
+            --background-dark: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('./knightb4dawnMedia/hero-bg.jpg') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #c0392b;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background-color: var(--background-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 80px 20px;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .event-date {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 80px 20px;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .community-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-dark);
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .members-section {
+            background-color: var(--background-dark);
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .member-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-card .member-initial {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 10px;
+        }
+
+        .member-card h4 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .event-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        /* Adding Sponsors Section */
+        .sponsors {
+            padding: 60px 20px;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sponsor-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sponsor-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .sponsor-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .sponsor-card p {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 20px;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .map-controls {
+            padding: 20px;
+            background: var(--background-dark);
+            color: var(--text-light);
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-btn, .add-activity-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover, .add-activity-btn:hover {
+            background-color: #a82315;
+        }
+
+        /* Activity Form */
+        .activity-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .activity-form select, .activity-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            #map {
+                height: 300px;
+            }
+
+            .modal-content {
+                margin: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Knights B4 Dawn</h1>
+            <p>Join Reno's premier chess community. From dawn till dusk, we're making moves!</p>
+            <a href="#events" class="cta-button">Join Next Meetup</a>
+            <a href="#live-map" class="cta-button">Live Chess Map</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-chess-knight"></i>
+                <h3>Weekly Meetups</h3>
+                <p>Early morning and evening chess sessions at Reno's finest local establishments. Start your day with strategy!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Free Lessons</h3>
+                <p>Beginner-friendly sessions with experienced players. Learn strategies, openings, and tactical combinations.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Local Tournaments</h3>
+                <p>Monthly tournaments for all skill levels. Compete for prizes and improve your game!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="events" id="events">
+        <div class="events-container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="month">MAR</div>
+                    <div class="day">15</div>
+                </div>
+                <div class="event-details">
+                    <h3>Morning Chess & Coffee</h3>
+                    <p>Start your day with chess and freshly roasted coffee. All skill levels welcome!</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Forged Coffee Roasters</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="month">MAR</div>
+                    <div class="day">22</div>
+                </div>
+                <div class="event-details">
+                    <h3>Evening Tournament</h3>
+                    <p>Join us for our monthly tournament followed by craft cocktails.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ferino Distillery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sponsors">
+        <h2 class="section-title">Our Proud Supporters</h2>
+        <div class="sponsors-grid">
+            <div class="sponsor-card">
+                <img src="./knightb4dawnMedia/jesse.jpg" alt="The Jesse">
+                <h3>The Jesse</h3>
+                <p>Historic hotel and bar hosting our weekend tournaments in style.</p>
+            </div>
+            <div class="sponsor-card">
+                <img src="./knightb4dawnMedia/forged.jpg" alt="Forged Coffee Roasters">
+                <h3>Forged Coffee Roasters</h3>
+                <p>Providing the perfect brew for our morning chess sessions.</p>
+            </div>
+            <div class="sponsor-card">
+                <img src="./knightb4dawnMedia/ferino.jpg" alt="Ferino Distillery">
+                <h3>Ferino Distillery</h3>
+                <p>Crafting exceptional spirits and hosting our evening events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="live-map" class="map-section">
+        <h2 class="section-title">Live Chess in Reno</h2>
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button id="loginBtn" class="login-btn">Member Login</button>
+                <button id="addActivityBtn" class="add-activity-btn" style="display: none;">Add Chess Activity</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Member Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Activity Form -->
+    <div id="activityForm" class="activity-form">
+        <h3>Add Chess Activity</h3>
+        <form id="newActivityForm">
+            <select id="activityType" required>
+                <option value="">Select Activity Type</option>
+                <option value="casual">Casual Games</option>
+                <option value="tournament">Tournament</option>
+                <option value="lesson">Chess Lesson</option>
+            </select>
+            <input type="text" id="location" placeholder="Location Name" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="number" id="players" placeholder="Number of Players" required>
+            <input type="text" id="description" placeholder="Description">
+            <button type="submit" class="add-activity-btn">Add Activity</button>
+        </form>
+    </div>
+
+    <footer>
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+        <p>Email: play@knightsb4dawn.com</p>
+        <p>&copy; 2024 Knights B4 Dawn. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 
